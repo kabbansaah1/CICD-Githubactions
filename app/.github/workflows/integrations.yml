@@ -1,1 +1,23 @@
-fff
+name: CI/CD Pipeline
+
+on: push
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run ESLint
+      run: npm run lint
+
+    - name: Run Tests
+      run: npm run test
+
+    - name: Build
+      run: npm run build
